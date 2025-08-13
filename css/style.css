@@ -691,9 +691,6 @@ body.no-touch {
 }
 
 
-
-
-
 /* ぐろなび不具合調整 */
 .gnavi {
   top: 0 !important;
@@ -717,11 +714,6 @@ body.no-touch {
   /* ← 表示状態にする */
 }
 
-
-
 .section_postion {
   position: fixed;
 }
-
-
-

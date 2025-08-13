@@ -497,9 +497,148 @@ function isElementInViewport(el) {
   );
 }
 
+//=====================================================================================================================================================================
+
+$(window).on('scroll', function () {
+  //================================================
+  function isInViewport(element) {
+    const elTop = $(element).offset().top;
+    const elBottom = elTop + $(element).outerHeight();
+
+    const viewportTop = $(window).scrollTop();
+    const viewportBottom = viewportTop + $(window).height();
+
+    return elBottom > viewportTop && elTop < viewportBottom;
+  }
+
+  if (isInViewport('#scroll_meta')) {
+    $('.mv-catch').addClass('position_fixed');
+  }
+
+  //===============================================
+
+  var scrollTrigger_size = 10;
+  var windowScroll = $(window).scrollTop();
+  if (windowScroll > scrollTrigger_size) {
+    $('.mv-catch-txt').addClass('mv-move-size');
+  } else {
+    $('.mv-catch-txt').removeClass('mv-move-size');
+  }
 
 
 
 
+  //=========================================
 
+  function onScrollDirection(callback) {
+    let lastScrollTop = 0;
 
+    $(window).on("scroll", function () {
+      let currentScroll = $(this).scrollTop();
+      let direction = currentScroll > lastScrollTop ? "down" : "up";
+
+      if (currentScroll !== lastScrollTop) {
+        callback(direction, currentScroll);
+      }
+
+      lastScrollTop = currentScroll;
+    });
+  }
+
+  //======================================
+
+  const mv_catch = $('#mv-catch').offset().top;
+  const mv_catch_height = $('#mv-catch').outerHeight();
+  const wrpas_1 = $('#wraps-1').offset().top;
+
+  const mv_catch_wrpas_1 = parseInt(wrpas_1 - (mv_catch + mv_catch_height));
+
+  if (mv_catch_wrpas_1 < 82 && mv_catch_wrpas_1 > 0) {
+    if (mv_catch_height > 95) {
+      $('.mv-catch').css('position', 'absolute');
+      $('.mv-catch').css('top', mv_catch);
+    }
+    $('.mv-catch').css('position', 'absolute');
+    $('.mv-catch').css('top', mv_catch);
+    if (mv_catch_wrpas_1 < 0) $('.mv-catch').css('top', mv_catch + mv_catch_wrpas_1);
+  }
+
+  let rect = $('#mv-catch')[0].getBoundingClientRect();
+
+  if (rect.top > $(window).height() * 0.5) {
+    $('.mv-catch').css('position', 'fixed');
+    $('.mv-catch').css('top', 0.5 * $(window).height());
+  }
+
+  if (isInViewport("#cool")) {
+    $('.fade-up-1').addClass('active');
+  } else {
+    console.log("Element is not visible");
+    $('.fade-up-1').removeClass('active');
+  }
+  const T1_about_bottom = $('.T1-about').outerHeight() * 0.15;
+  const cool_top = $('#cool').offset().top;
+  const T1_about_top = $('.T1-about').offset().top + $('.T1-about').outerHeight();
+  console.log(cool_top);
+  console.log(T1_about_top);
+
+  let rect_cool = $('#cool')[0].getBoundingClientRect();
+
+  if (!isInViewport('#hidden') && isInViewport('#T1-jigyo') || isInViewport('#T1-company-hidden')) {
+    $('#cool').css('color', '#fff');
+  } else {
+    $('#cool').css('color', '#71afaf');
+  }
+
+  const T1_pro_top = $('.T1-pro').offset().top;
+  const T1_company_top = $('.T1-company').offset().top;
+  if (windowScroll > T1_pro_top) {
+    $('#card_1').addClass('card_1-fixed');
+    $('#card_2').css('margin-top', $('#card_1').outerHeight());
+    $('.T1-jigyo').css('background-color', 'transparent');
+  } else if (windowScroll < T1_about_top) {
+    $('#card_1').removeClass('card_1-fixed');
+    $('#card_2').css('margin-top', '0');
+    $('.T1-jigyo').css('background-color', '#fff');
+  }
+
+  //========== カードごとの流れ =====================
+  if (isInViewport('#T1-company')) {
+    $('.hidden_card').css('display', 'block');
+    $('#T1-company').css('margin-top', '0px');
+    $('.T1-about-img').css('display', 'none');
+  } else {
+    if ($(window).width() > 768) {
+      $('.hidden_card').css('display', 'none');
+      $('#T1-company').css('margin-top', '100vh');
+      $('.T1-about-img').css('display', 'block');
+    }
+  }
+  console.log(isInViewport('#T1-pro'));
+
+  const margin_left = $(window).width() - $('.T1-company-img').outerWidth();
+  if ($(window).width() > 768) {
+
+    if (isInViewport('#T1-company')) {
+      if (!isInViewport('#T1-company-hidden')) {
+        $("#T1-company-txt-1").css('position', 'fixed');
+        $("#T1-company-txt-1").css('top', '120px');
+        $("#T1-company-txt-1").css('left', '50px');
+        $("#T1-company-txt").css('display', 'block');
+        $("#T1-company-txt").css('visibility', 'hidden');
+      } else {
+        $("#T1-company-txt-1").css('position', 'absolute');
+        $("#T1-company-txt-1").css('top', '120px');
+        $("#T1-company-txt-1").css('left', '50px');
+        $("#T1-company-txt").css('display', 'block');
+        $("#T1-company-txt").css('visibility', 'hidden');
+      }
+      if (isInViewport('#T1-gallery')) {
+        $("#T1-company-txt-1").css('position', 'absolute');
+        $("#T1-company-txt-1").css('top', 'auto');
+        $("#T1-company-txt-1").css('bottom', '250px');
+        $("#T1-company-txt-1").css('left', '50px');
+      }
+    }
+  }
+});
