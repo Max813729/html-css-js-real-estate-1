@@ -1,0 +1,727 @@
+@charset "UTF-8";
+
+.parallax-container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.parallax-background {
+  transform: translateZ(-1px) scale(2);
+  z-index: -1;
+}
+
+.parallax-content {
+  transform: translateZ(0);
+  z-index: 1;
+}
+
+.D6-cont .data__item:not(:last-of-type) {
+  border-bottom: 1px solid #75a8a1 !important;
+}
+
+.D6-cont .date__term {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  color: #539289;
+  font-size: 24px !important;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.D6-cont .data__desc {
+  margin-top: 16px;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  font-size: 18px !important;
+  line-height: 1.84;
+  text-align: center;
+}
+
+.D3-cont .flower__title {
+  color: #539289;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  font-size: 36px !important;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.D3-cont .flower__title span {
+  display: block;
+  margin-top: 0.15em;
+  font-style: italic;
+  font-size: 18px !important;
+  text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+  .D3-cont .flower__title span {
+    font-size: 18px !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .low-mv__text {
+    max-width: 480px;
+    margin-top: 30px;
+    font-size: 16px !important;
+  }
+}
+
+/* ロゴのスクロール表示 */
+.header-logo {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+}
+
+.header-logo.hide {
+  opacity: 0;
+  transform: translate(-50%, -20px);
+  pointer-events: none;
+}
+
+/* スマホスクロー関連 */
+body.no-touch {
+  position: fixed;
+  width: 100%;
+}
+
+/* Scroll表記ここから */
+.scroll {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(40px);
+  z-index: 999;
+}
+
+.low-mv {
+  position: relative;
+}
+
+#scrollBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Scroll文字（ふわっと表示） */
+.scroll-text {
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+/* Scroll線の白背景 */
+.scroll-line {
+  position: relative;
+  display: inline-block;
+  width: 1px;
+  height: 24px;
+  background-color: #fff;
+  margin-top: 8px;
+  overflow: hidden;
+}
+
+/* 緑のスライド（上から下） */
+.scroll-line-green {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #539289;
+  animation: greenSlide 4s ease-in-out infinite;
+  transform: translateY(-100%);
+  z-index: 1;
+}
+
+/* 白のマスク（上から下に被さる） */
+.scroll-line-white {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  animation: whiteMask 4s ease-in-out infinite;
+  transform: translateY(-100%);
+  z-index: 2;
+}
+
+/* 緑：上から登場 */
+@keyframes greenSlide {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  25% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* 白：上から再びマスク */
+@keyframes whiteMask {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  25% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(-100%);
+  }
+
+  75% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+/* Scroll文字のアニメ */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* 共通：下からふわっと表示テキスト */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* .mv-catchだけ特別にゆっくり */
+
+.mv-catch .fade-up {
+  transition: opacity 1.6s ease-out, transform 1.6s ease-out !important;
+}
+
+/* 念のため h2に余計な transform が効かないように */
+.mv-catch h2 {
+  transform: none !important;
+  will-change: auto !important;
+}
+
+.mv-catch-txt {
+  transition: all, 0.8s;
+}
+
+.mv-move-size {
+  font-size: 35px;
+  transition: all, 0.8s;
+}
+
+.mv-move {
+  position: absolute;
+}
+
+.mv-move-mb {
+  position: absolute;
+}
+
+.mv-move-height {
+  top: 99%;
+}
+
+/* 線：上から下に緑→白 */
+@keyframes growGreen {
+  0% {
+    height: 0%;
+    background-color: #539289;
+  }
+
+  40% {
+    height: 100%;
+    background-color: #539289;
+  }
+
+  60% {
+    height: 100%;
+    background-color: #539289;
+  }
+
+  100% {
+    height: 0%;
+    background-color: #fff;
+  }
+}
+
+
+/* D3.4のメイン写真の位置 */
+.low-mv.about {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center !important;
+}
+
+
+
+/* ここまで */
+
+/* D6の線 */
+.D6-cont .nav__title {
+  padding: 24px 0;
+  border-bottom: 1px solid #9a9a9a !important;
+  font-size: clamp(1.25rem, 0.053rem + 2.46vw, 3rem);
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* D6ボックス内左右余白 */
+.D6-cont .department__box.sales,
+.D6-cont .department__box.general,
+.D6-cont .department__box.management,
+.D6-cont .department__box.part-time {
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+  box-sizing: border-box;
+}
+
+/* スマホ用（〜780px）だけメディアクエリで上書き */
+@media screen and (max-width: 780px) {
+
+  .D6-cont .department__box.sales,
+  .D6-cont .department__box.general,
+  .D6-cont .department__box.management,
+  .D6-cont .department__box.part-time {
+    width: auto !important;
+    padding: 30px 30px !important;
+    /* ← スマホの余白設定 */
+    box-sizing: border-box;
+  }
+}
+
+/* D6ボックス内フォントサイズ */
+@media screen and (max-width: 780px) {
+
+  .D6-cont .department__box.sales .department__text,
+  .D6-cont .department__box.general .department__text,
+  .D6-cont .department__box.management .department__text,
+  .D6-cont .department__box.part-time .department__text {
+    font-size: 18px !important;
+    /* ←お好みのサイズに変更 */
+  }
+}
+
+/* D6概要テキストが折り返されない */
+.D6-cont .data__desc {
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  white-space: normal !important;
+}
+
+/* B2345縦書き文章周りの余白 */
+.wraps-txt {
+  padding-left: 30px !important;
+  padding-right: 30px !important;
+  box-sizing: border-box;
+}
+
+/* PC（幅781px以上）のときだけ余白を広くする */
+@media screen and (min-width: 781px) {
+  .wraps-txt {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+  }
+}
+
+/* プライバシーポリシー文字タイトルサイズ変更 */
+.privacy__heading {
+  font-size: 28px !important;
+  color: #44736d;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .privacy__heading {
+    font-size: 25px;
+  }
+}
+
+/* プライバシーポリシー文字本文サイズ変更 */
+/* PC（781px以上）では 20px */
+.privacy__text,
+.privacy__label,
+.privacy__content-text,
+.privacy__item {
+  font-size: 18px !important;
+  list-style: 1.85em;
+}
+
+/* SP（780px以下）では 16px */
+@media screen and (max-width: 780px) {
+
+  .privacy__text,
+  .privacy__label,
+  .privacy__content-text,
+  .privacy__item {
+    font-size: 16px !important;
+  }
+}
+
+/* 福利厚生のボックス余白と文字サイズ */
+@media screen and (max-width: 780px) {
+  .D7-cont .item {
+    position: relative !important;
+  }
+
+  .D7-cont .item__contents {
+    position: relative !important;
+  }
+
+  .D7-cont .item__img {
+    position: relative !important;
+    width: 70vw !important;
+    height: auto !important;
+    max-width: none !important;
+    margin-top: -100px !important;
+    /* ← ここで「かぶり」調整！ */
+    z-index: 3 !important;
+  }
+
+  /* 左寄せ（偶数行）をブラウザ端にピッタリ */
+  .D7-cont .item:nth-of-type(even) .item__img {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    transform: translateX(calc(-1 * 4.6875vw)) !important;
+  }
+
+  /* 右寄せ（奇数行）をブラウザ端にピッタリ */
+  .D7-cont .item:nth-of-type(odd) .item__img {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    transform: translateX(4.6875vw) !important;
+  }
+}
+
+@media screen and (max-width: 780px) {
+
+  /* 一番上のli内のカレンダーリンクに下余白を追加 */
+  .D7-cont .item:nth-of-type(1) .item__calendar-link {
+    display: inline-block;
+    /* 必要に応じて */
+    margin-bottom: 20px !important;
+    /* お好みで調整 */
+  }
+}
+
+/* 福利厚生文字と余白 */
+/* PC用：タイトル・テキスト・カレンダーの親に左右余白 */
+.D7-cont .item__title,
+.D7-cont .item__text,
+.D7-cont .item__calendar {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+
+/* SP用 */
+@media screen and (max-width: 780px) {
+
+  .D7-cont .item__title,
+  .D7-cont .item__text,
+  .D7-cont .item__calendar {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* PC用 */
+.D7-cont .item__title {
+  font-size: 36px !important;
+  font-weight: normal !important;
+  /* ボールドなしの場合 */
+}
+
+.D7-cont .item__text,
+.D7-cont .item__calendar-link {
+  font-size: 18px !important;
+}
+
+/* スマホ用 */
+@media screen and (max-width: 780px) {
+  .D7-cont .item__title {
+    font-size: 28px !important;
+    /* SP向けに少し小さく調整（必要なら） */
+  }
+
+  .D7-cont .item__text,
+  .D7-cont .item__calendar-link {
+    font-size: 16px !important;
+    /* こちらも必要に応じて調整 */
+  }
+}
+
+/* PC用：ロゴとメニューの高さ揃え */
+.menu-btn {
+  top: 60px !important;
+}
+
+/* SP用：スマホ幅のときの高さ揃え */
+@media screen and (max-width: 780px) {
+  .menu-btn {
+    top: 40px !important;
+    /* ロゴの実位置と揃える */
+  }
+}
+
+/*メニューボタンの制御 */
+.menu-btn {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* 非表示時 */
+.menu-btn.hide {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* 表示時（再表示ふわっと） */
+.menu-btn.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* メニュー展開時だけロゴの位置とサイズを調整 */
+/* メニュー展開時：共通設定 */
+.menu-open .gnavi {
+  padding-top: 20px !important;
+}
+
+.menu-open .gnavi-logo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 40px !important;
+  /* 通常時のロゴ高さと合わせる */
+  margin-bottom: 40px;
+}
+
+.menu-open .gnavi-logo img {
+  width: 250px !important;
+  height: auto !important;
+  opacity: 1;
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 通常時：SPロゴ位置調整 */
+@media screen and (max-width: 780px) {
+  .header-logo {
+    top: 40px !important;
+    /* 展開時と揃えるために40px */
+  }
+}
+
+/* メニュー展開時：SPロゴサイズ＆位置調整 */
+@media screen and (max-width: 780px) {
+  .menu-open .gnavi {
+    padding-top: 20px !important;
+    /* 通常時に合わせる */
+  }
+
+  .menu-open .gnavi-logo {
+    margin-top: 20px !important;
+    margin-bottom: 40px;
+  }
+
+  .menu-open .gnavi-logo img {
+    width: 150px !important;
+    /* 通常時SPと同じ */
+    height: auto !important;
+    opacity: 1 !important;
+  }
+}
+
+/* moreボタン */
+/* 通常の横揺れ（他の矢印ボタン用） */
+@keyframes yokoyure1 {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* flower__more-link 専用（Y位置調整含む） */
+@keyframes yokoyure-flower {
+  0% {
+    transform: translateY(-4px) translateX(0);
+  }
+
+  50% {
+    transform: translateY(-4px) translateX(20px);
+  }
+
+  100% {
+    transform: translateY(-4px) translateX(0);
+  }
+}
+
+/* ▼共通ボタンたち（T1ニュース・B1・B2） */
+.T1-news-wrap-right .btn a::after {
+  content: "";
+  width: 60px;
+  height: 10px;
+  background: url(../images/B1/arrow01.png) no-repeat center right/contain !important;
+  display: inline-block;
+  animation: yokoyure1 2.5s ease-in-out infinite;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* ▼共通ボタンたち（T1ニュース・B1・B2） */
+.B1-cont .wraps-txt .btns a::after,
+.B2-gallery .btns a::after {
+  content: "";
+  width: 60px;
+  height: 10px;
+  background: url(../images/B1/arrow01.png) no-repeat center right/contain;
+  display: inline-block;
+  animation: yokoyure1 2.5s ease-in-out infinite;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
+/* ▼flower専用：位置を上にずらしてアニメーション */
+/* D3のmoreボタン */
+.flower .flower__more .flower__more-link {
+  font-size: 24px;
+  font-family: "adobe-garamond-pro", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+  color: #71afaf !important;
+  font-style: italic;
+  text-decoration: none;
+  position: relative;
+  padding-right: 70px !important;
+
+}
+
+.flower .flower__more .flower__more-link:hover {
+  color: #71afaf !important;
+}
+
+.flower__more-link::after {
+  content: "";
+  width: 60px !important;
+  height: 10px;
+  background: url(../images/B1/arrow01.png) no-repeat center right/contain !important;
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  animation: yokoyure-flower 2.5s ease-in-out infinite;
+}
+
+/* B2-gallery ボタン全体を内側に余裕を持たせて配置 */
+.B2-gallery .btns {
+  padding-right: 60px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+}
+
+/* ボタンの中の矢印（アニメーション & Y軸位置調整） */
+.B2-gallery .btns a::after {
+  content: "";
+  width: 60px;
+  height: 10px;
+  background: url(../images/B1/arrow01.png) no-repeat center right/contain;
+  display: inline-block;
+  margin-left: 8px;
+  margin-top: -4px;
+  /* ← ここで上に2pxずらす */
+  vertical-align: middle;
+  animation: yokoyure1 2.5s ease-in-out infinite;
+}
+
+
+
+
+
+/* ぐろなび不具合調整 */
+.gnavi {
+  top: 0 !important;
+  /* ← top: -100vh を 0 に変更 */
+  -webkit-transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  /* ← transition対象を transform に変更 */
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  /* ← 同上 */
+  transform: translateY(-100%) !important;
+  /* ← transformで画面外に非表示にする */
+
+  /* ↓ 追加：ちらつき防止対策（任意） */
+  will-change: transform !important;
+  /* ← transformアニメの最適化 */
+  backface-visibility: hidden !important;
+  /* ← WebViewや一部ブラウザでのチラ見え対策 */
+}
+
+.gnavi.is-active {
+  transform: translateY(0) !important;
+  /* ← 表示状態にする */
+}
+
+
+
+.section_postion {
+  position: fixed;
+}
+
+
+

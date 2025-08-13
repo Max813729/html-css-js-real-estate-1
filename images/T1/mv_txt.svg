@@ -1,0 +1,22 @@
+<svg id="mv_txt.svg" xmlns="http://www.w3.org/2000/svg" width="1248" height="147" viewBox="0 0 1248 147">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        font-size: 100px;
+        fill: #fff;
+        text-anchor: middle;
+      }
+
+      .cls-1 {
+        font-family: HiraMinPro-W3, HiraMinPro;
+      }
+
+      .cls-2 {
+        font-family: "Adobe Garamond Pro";
+        font-style: italic;
+      }
+    </style>
+  </defs>
+  <text id="この街で_新たな出会いをまたひとつ_" data-name="この街で、新たな出会いをまたひとつ。" class="cls-1" transform="translate(632.384 143.23) scale(0.352)">この街で、新たな出会いをまたひとつ。</text>
+  <text id="Discover_a_New_Connection_in_The_City" data-name="Discover a New Connection in The City" class="cls-2" transform="translate(622.415 62.157) scale(0.866)">Discover a New Connection in The City</text>
+</svg>

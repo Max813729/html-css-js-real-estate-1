@@ -1,0 +1,254 @@
+// main: common.scss
+
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap');
+$sp-width:780px;
+$tab-width:843px;
+$inner:1285px;
+$text-color: #333333;
+$main-color: #71afaf;
+$acc-color01: #5d8d86;
+$acc-color02: #eaf6f6;
+$acc-color03: #fdf8f9;
+$mgauto: 0 auto;
+$font-size: 18px;
+$fs10: 0.625rem;
+$fs11: 0.6875rem;
+$fs12: 0.75rem;
+$fs13: 0.8125rem;
+$fs14: 0.875rem;
+$fs16: 1rem;
+$fs18: 1.125rem;
+$fs20: 1.25rem;
+$fs24: 1.5rem;
+$fs26: 1.625rem;
+$fs28: 1.75rem;
+$fs30: 1.875rem;
+$fs32: 2rem;
+$fs34: 2.125rem;
+$fs36: 2.25rem;
+$fs40: 2.5rem;
+$fs48: 3rem;
+$mincho:  "Hiragino Mincho ProN","Yu Mincho", "YuMincho", serif;
+$gara:  "adobe-garamond-pro","Hiragino Mincho ProN","Yu Mincho", "YuMincho", serif;
+$gothic:'Noto Sans JP',"游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+@mixin box-shadow( $horizontal: 0, $vertical: 0, $blur: 10px, $extent: 0, $color: #ccc ) {
+	box-shadow: $horizontal $vertical $blur $extent $color;
+	-moz-box-shadow: $horizontal $vertical $blur $extent $color;
+	-webkit-box-shadow: $horizontal $vertical $blur $extent $color;
+}
+@mixin gradient-lr( $left-color, $right-color, $ie-start, $ie-end ) {
+	background: -moz-linear-gradient(left, $left-color 0%, $right-color 100%);
+	background: -webkit-linear-gradient(left, $left-color 0%,$right-color 100%);
+	background: linear-gradient(to right, $left-color 0%,$right-color 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=$ie-start, endColorstr=$ie-end,GradientType=1 );
+}
+
+@mixin shadow{
+  filter: drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff) drop-shadow(0px 0px 2px #fff)
+}
+
+@mixin sp{
+  @media screen and (max-width: $sp-width){
+    @content;
+  }
+}
+@mixin tab{
+  @media screen and (max-width: $inner){
+    @content;
+  }
+}
+@mixin inner{
+  width: $inner;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  @media screen and (max-width: $inner){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@mixin inner_out{
+    width: 100vw;
+    margin:0;
+    padding:0;
+    margin-left: calc(((100vw - 100%) / 2) * -1) !important;
+    margin-right: calc(((100vw - 100%) / 2) * -1) !important;
+    padding: 0 20px;
+}
+
+@mixin square_banner{
+  position: relative;
+  &:before{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 33.1%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+@mixin square_banner02{
+  position: relative;
+  &:before{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 28%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+
+@mixin squareMV{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top:50.8%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+
+@mixin square16{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top:61.8%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+@mixin square_100{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 100%;
+  }
+  > img,video{
+    position: absolute;
+    left: 0;
+    top: 1;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+@mixin square43{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 75%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+@mixin square63{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 75%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+@mixin square34{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 133%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+
+
+@mixin square_top-tenji{
+  position: relative;
+  &:after{
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: 48%;
+  }
+  img,video{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%!important;
+    height: 100%!important;
+    object-fit: cover;
+    font-family: "object-fit: cover;";
+  }
+}
+

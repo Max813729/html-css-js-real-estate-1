@@ -1,0 +1,39 @@
+body.mce-content-body{
+	padding: 1em !important;
+	font-family: "Noto Sans JP", "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+body.mce-content-body p{
+	margin-bottom: 1.35em;
+	line-height: 1.65;
+}
+body.mce-content-body p::after{
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+body.mce-content-body ul:not(.ul01){
+	list-style: disc !important;
+  margin: 1em 0 1em 1.5em;
+}
+body.mce-content-body ol:not(.row){
+	list-style: decimal !important;
+  margin: 1em 0 1em 1.5em;
+}
+
+table.mce-item-table {
+	border-top: solid 1px #DDD;
+	border-right: solid 1px #DDD;
+	margin: 1.5em 0;
+}
+table.mce-item-table td {
+	border-bottom: solid 1px #DDD;
+	border-left: solid 1px #DDD;
+	padding: .65em;
+}
+
+
+.low-mv__heading,
+.low-mv__text{
+	color: black;
+}

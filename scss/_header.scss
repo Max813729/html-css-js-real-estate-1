@@ -1,0 +1,836 @@
+
+// ヘッダー //////////////////////////////
+.menu-open{
+    .header{
+        &-logo{
+            display: none;
+        }
+    }
+}
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 13000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    pointer-events: none;
+    
+    &-logo{
+        display: inline-block;
+        position: relative;
+        top: 40px;
+        z-index: 1001;
+        text-align: center;
+        pointer-events: auto;
+        a{
+            img{
+                width: 250px
+            }
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        position: absolute;
+        z-index: 13000;
+        &-logo{
+            top: 20px;
+            a{
+                img{
+                    width: 150px;
+                }
+            }
+        }
+    }
+}
+
+
+// ハンバーガーメニューボタン
+.menu-btn {
+    position: fixed;
+    top: 80px;
+    left: 40px;
+    z-index: 10000;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    pointer-events: auto;
+    span {
+        display: block;
+        width: 60px;
+        height: 1px;
+        background-color: #fff;
+        transition: all 0.3s ease;
+        position: relative;
+        flex-shrink: 0;
+        
+        &:nth-child(1) {
+            transform-origin: center;
+        }
+        &:nth-child(2) {
+            transform-origin: center;
+        }
+        &:nth-child(3) {
+            transform-origin: center;
+        }
+    }
+    
+    .menu-text {
+        // writing-mode: vertical-rl;
+        // text-orientation: mixed;
+        font-size: 14px;
+        color: #fff;
+        margin-top: 0px;
+        transition: opacity 0.3s ease;
+        font-family: $gara;
+        letter-spacing: 0px;
+        font-style: italic;
+        font-weight: 400;
+    }
+    
+    // メニューが開いている時のハンバーガーボタン
+    &.open {
+        span {
+            background-color: #999;
+            width: 60px;
+            &:nth-child(1) {
+                
+                transform: rotate(90deg) translateY(12px) translateX(11px);
+            }
+            &:nth-child(2) {
+                transform: rotate(90deg);
+            }
+            &:nth-child(3) {
+                transform: rotate(90deg) translateY(-12px) translateX(-11px);
+            }
+        }
+        
+        .menu-text {
+            opacity: 0;
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        top: 40px;
+        left: 20px;
+        &.open {
+            span {
+                background-color: #999;
+                width: 50px;
+                &:nth-child(1) {
+                    
+                    transform: rotate(90deg) translateY(12px) translateX(11px);
+                }
+                &:nth-child(2) {
+                    transform: rotate(90deg);
+                }
+                &:nth-child(3) {
+                    transform: rotate(90deg) translateY(-12px) translateX(-11px);
+                }
+            }
+            
+            .menu-text {
+                opacity: 0;
+            }
+        }
+    }
+}
+
+// 下層ページヘッダー
+.low-mv{
+    @include inner_out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: bottom center;
+    height: 675px;
+    h2,h1{
+        font-size: 70px;
+        font-family: $gara;
+        color: #fff;
+        text-align: center;
+        rt{
+            display: block;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        span{
+            font-size: 20px;
+            display: block;
+            margin-top: 0.15em;
+            font-weight: 400;
+            font-style: italic;
+        }
+    }
+    .txts{
+        text-align: center;
+        margin-top: 50px;
+        font-size: 24px;
+        line-height: 2;
+        font-family: $gara;
+        color: #fff;
+        // margin-bottom: -200px;
+    }
+    &-small{
+        height: 450px;
+        padding-top: 80px!important;
+    }
+    @media screen and (max-width: $sp-width){
+        // padding: 200px 25px 200px;
+        height: 500px;
+        h2{
+            font-size: 40px;
+        }
+        .txts{
+            font-size: 18px;
+            margin-bottom: -100px;
+        }
+        &-small{
+            height: 350px;
+            padding-top: 40px!important;
+        }
+    }
+}
+
+// メニューが開いている時のbodyスタイル
+body.menu-open {
+    overflow: hidden;
+}
+
+.gnavi{
+    padding-top: 100px;
+    padding-bottom: 100px;
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    // height: 85vh;
+    z-index: 1100;
+    background-color: rgba(#fff,.95);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    overflow-y: auto;
+    
+    // メニューが開いている状態
+    &.is-active {
+        top: 0;
+    }
+    &-logo{
+        text-align: center;
+        margin-bottom: 60px;
+        img{
+            height: 30px;
+            opacity: 0.65;
+        }
+    }
+    &-menu{
+        @include inner;
+        // margin-bottom: 30px;
+        display: flex;
+        align-items: flex-start;
+        > ul,.links{
+            width: calc(100% / 6);
+            a{
+                color: #333;
+            }
+        }
+        > ul{
+            padding: 0 25px;
+            font-family: $gara;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            border-left: 1px solid #333;
+            > li{
+                > a{
+                    font-size: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 1;
+                    font-weight: bold;
+                    gap: 10px;
+                    > span{
+                        color: $main-color;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-style: italic;
+                        letter-spacing: 0.025em;
+                    }
+                }
+                > ul{
+                    margin-top: 25px;
+                    flex-direction: column;
+                    display: flex;
+                    gap: 5px;
+                    > li{
+                        > a{
+                            font-size: 18px;
+                        }
+                        > ul{
+                            margin-top: 10px;
+                            flex-direction: column;
+                            display: flex;
+                            gap: 5px;
+                            margin-left: 1em;
+                            > li{
+                                > a{
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &-bnrs{
+            ul{
+                display: flex;
+            flex-direction: column;
+            gap: 10px;
+            }
+        }
+        &-sns{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            h4{
+                font-size: 16px;
+                color: #999;
+                font-family: $gara;
+                font-style: italic;
+                letter-spacing: 0.05em;
+            }
+            ul{
+                display: flex;
+                gap: 15px;
+                li{
+                    a{
+                        img{
+                            // mix-blend-mode: multiply;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        &-link{
+            margin-bottom: 20px;
+            ul{
+                font-family: $gara;
+                flex-direction: column;
+                display: flex;
+                gap: 5px;
+                li{
+                    > a{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        &-langs{
+            ul{
+                display: flex;
+                li{
+                    a{
+                        color: #ccc;
+                        font-size: 20px;
+                        font-family: $gara;
+                    }
+                    &.active{
+                        a{
+                            color: #333;
+                            pointer-events: none;
+                        }
+                    }
+                    &:nth-child(1){
+                        &:after{
+                            content: "/";
+                            display: inline-block;
+                            margin: 0 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .linksSP{
+        display: none;
+    }
+    @media screen and (max-width: $sp-width){
+        flex-direction: column;
+        overflow-y: auto;
+        height: 100dvh;
+        padding-top: 30px;
+        &-logo{
+            margin-bottom: 50px;
+            img{
+                height: auto;
+                width: 150px;
+            }
+        }
+        &-menu{
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 40px 20px;
+            height: 550px;
+            margin-bottom: 0;
+            > ul{
+                border-left: none;
+                border-top: none;
+                width: calc((100% - 20px) / 2);
+                padding: 0;
+                border-left: 1px solid #ccc;
+                padding-left: 20px;
+                > li{
+                    > a{
+                        font-size: 16px;
+                    }
+                    > ul{
+                        > li{
+                            > a{
+                                font-size: 16px;
+                            }
+                            > ul{
+                                > li{
+                                    > a{
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+        .links{
+            display: none;
+        }
+        .linksSP{
+            display: block;
+            padding: 0 25px;
+            .wraps{
+                display: flex;
+                gap: 20px;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                a{
+                    font-size: 16px;
+                }
+                .links-link{
+                    a{
+                        color: #333;
+                    }
+                }
+            }
+            .links-bnrs{
+                ul{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    li{
+                        a{
+                            img{}
+                        }
+                    }
+                }
+            }
+        }
+        &-Copyright{
+            background-color: $acc-color02;
+            padding: 15px 20px;
+            .inner{
+                justify-content: center;
+            }
+            small{
+                color: #666;
+                font-family: $gara;
+                font-style: italic;
+                font-weight: 400;
+            }
+            .langs{
+                display: none;
+            }
+        }
+    }
+}
+
+// MV
+
+
+// 下層MV
+
+
+
+// パンくずリスト
+
+
+
+
+// フッター //////////////////////////////
+.footer{
+    padding-top: 60px;
+    &-logo{
+        text-align: center;
+        margin-bottom: 60px;
+        img{
+            height: 30px;
+            opacity: 0.65;
+        }
+    }
+    &-menu{
+        @include inner;
+        // margin-bottom: 30px;
+        display: flex;
+        align-items: flex-start;
+        > ul,.links{
+            width: calc(100% / 6);
+            a{
+                color: #333;
+            }
+        }
+        > ul{
+            padding: 0 25px;
+            font-family: $gara;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            border-left: 1px solid #333;
+            > li{
+                > a{
+                    font-size: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    line-height: 1;
+                    font-weight: bold;
+                    gap: 10px;
+                    > span{
+                        color: $main-color;
+                        font-size: 14px;
+                        font-weight: 400;
+                        font-style: italic;
+                        letter-spacing: 0.025em;
+                    }
+                }
+                > ul{
+                    margin-top: 25px;
+                    flex-direction: column;
+                    display: flex;
+                    gap: 5px;
+                    > li{
+                        > a{
+                            font-size: 18px;
+                        }
+                        > ul{
+                            margin-top: 10px;
+                            flex-direction: column;
+                            display: flex;
+                            gap: 5px;
+                            margin-left: 1em;
+                            > li{
+                                > a{
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+    .links{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        &-bnrs{
+            ul{
+                display: flex;
+            flex-direction: column;
+            gap: 10px;
+            }
+        }
+        &-sns{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            h4{
+                font-size: 16px;
+                color: #999;
+                font-family: $gara;
+                font-style: italic;
+                letter-spacing: 0.05em;
+            }
+            ul{
+                display: flex;
+                gap: 15px;
+                li{
+                    a{
+                        img{
+                            // mix-blend-mode: multiply;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+        &-link{
+            margin-bottom: 20px;
+            ul{
+                font-family: $gara;
+                flex-direction: column;
+                display: flex;
+                gap: 5px;
+                li{
+                    > a{
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        &-langs{
+            ul{
+                display: flex;
+                li{
+                    a{
+                        color: #ccc;
+                        font-size: 20px;
+                        font-family: $gara;
+                    }
+                    &.active{
+                        a{
+                            color: #333;
+                            pointer-events: none;
+                        }
+                    }
+                    &:nth-child(1){
+                        &:after{
+                            content: "/";
+                            display: inline-block;
+                            margin: 0 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .linksSP{
+        display: none;
+    }
+    &-Copyright{
+        background-color: $acc-color02;
+        padding: 15px 20px;
+        margin-top: 60px;
+        .inner{
+            display: flex;
+            justify-content: space-between;
+            gap: 1em;
+            align-items: center;
+        }
+        small{
+            color: #666;
+            font-family: $gara;
+            font-style: italic;
+            font-weight: 400;
+        }
+        .langs{
+            ul{
+                display: flex;
+                li{
+                    a{
+                        color: #ccc;
+                    }
+                    &.active{
+                        a{
+                            color: #333;
+                            pointer-events: none;
+                        }
+                    }
+                    &:nth-child(1){
+                        &:after{
+                            content: "/";
+                            display: inline-block;
+                            margin: 0 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        flex-direction: column;
+        &-logo{
+            margin-bottom: 50px;
+            img{
+                height: 30px;
+            }
+        }
+        &-menu{
+            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 40px 20px;
+            height: 550px;
+            margin-bottom: 0;
+            > ul{
+                border-left: none;
+                border-top: none;
+                width: calc((100% - 20px) / 2);
+                padding: 0;
+                border-left: 1px solid #ccc;
+                padding-left: 20px;
+                > li{
+                    > a{
+                        font-size: 16px;
+                    }
+                    > ul{
+                        > li{
+                            > a{
+                                font-size: 16px;
+                            }
+                            > ul{
+                                > li{
+                                    > a{
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            > .links{
+                // display: none;
+            }
+        }
+        .links{
+            display: none;
+        }
+        .linksSP{
+            display: block;
+            padding: 0 25px;
+            margin-bottom: 40px;
+            .wraps{
+                display: flex;
+                gap: 20px;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                a{
+                    font-size: 16px;
+                }
+                .links-link{
+                    a{
+                        color: #333;
+                    }
+                }
+            }
+            .links-bnrs{
+                ul{
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    li{
+                        a{
+                            img{}
+                        }
+                    }
+                }
+            }
+        }
+        &-Copyright{
+            background-color: $acc-color02;
+            padding: 15px 20px;
+            .inner{
+                justify-content: center;
+            }
+            small{
+                color: #666;
+            }
+            .langs{
+                display: none;
+            }
+        }
+    }
+}
+
+// ページトップ //////////////////////////////
+
+// scroll ボタン
+.scroll {
+    position: absolute;
+    bottom: 0px;
+    left: 40px;
+    z-index: 100;
+    
+    #scrollBtn {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        
+        .scroll-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            color: #fff;
+            font-size: 18px;
+            font-family: $gara;
+            font-style: italic;
+            font-weight: 400;
+            transition: 0.5s;
+        }
+        
+        .scroll-line {
+            width: 1px;
+            height: 100px;
+            background-color: #fff;
+            display: block;
+            transition: 0.5s;
+        }
+        
+        &:hover {
+            .scroll-text {
+                opacity: 0.7;
+                transition: 0.5s;
+            }
+            .scroll-line {
+                opacity: 0.7;
+                transition: 0.5s;
+            }
+        }
+    }
+    
+    @media screen and (max-width: $sp-width) {
+        bottom: 20px;
+        left: 20px;
+        
+        #scrollBtn {
+            .scroll-text {
+                font-size: 12px;
+            }
+            
+            .scroll-line {
+                height: 40px;
+            }
+        }
+    }
+}

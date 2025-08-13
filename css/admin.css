@@ -1,0 +1,4 @@
+/* 編集者のYoast SE0メニューを非表示 */
+#toplevel_page_wpseo_workouts{
+	display: none;
+}

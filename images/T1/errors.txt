@@ -1,0 +1,1 @@
+[2025/6/12 15:38:01] layer "mv_txt.svg": Fonts may render inconsistently and text wrapping is unsupported which can result in clipped text. Convert text to a shape to maintain fidelity.

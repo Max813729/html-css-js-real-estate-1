@@ -1,0 +1,367 @@
+
+/* ==========================================================================
+//サイト共通
+========================================================================== */
+/* 上マージン */
+.mt_0{ margin-top: 0 !important; }
+.mt_5{ margin-top: 5px !important; }
+.mt_10{ margin-top: 10px !important; }
+.mt_15{ margin-top: 15px !important; }
+.mt_20{ margin-top: 20px !important; }
+.mt_25{ margin-top: 25px !important; }
+.mt_30{ margin-top: 30px !important; }
+.mt_35{ margin-top: 35px !important; }
+.mt_40{ margin-top: 40px !important; }
+.mt_50{ margin-top: 50px !important; }
+.mt_60{ margin-top: 60px !important; }
+.mt_70{ margin-top: 70px !important; }
+.mt_80{ margin-top: 80px !important; }
+.mt_90{ margin-top: 90px !important; }
+.mt_100{ margin-top: 100px !important; }
+/* 下マージン */
+.mb_0{ margin-bottom: 0 !important; }
+.mb_5{ margin-bottom: 5px !important; }
+.mb_10{ margin-bottom: 10px !important; }
+.mb_15{ margin-bottom: 15px !important; }
+.mb_20{ margin-bottom: 20px !important; }
+.mb_25{ margin-bottom: 25px !important; }
+.mb_30{ margin-bottom: 30px !important; }
+.mb_35{ margin-bottom: 35px !important; }
+.mb_40{ margin-bottom: 40px !important; }
+.mb_50{ margin-bottom: 50px !important; }
+.mb_60{ margin-bottom: 60px !important; }
+.mb_70{ margin-bottom: 70px !important; }
+.mb_80{ margin-bottom: 80px !important; }
+.mb_90{ margin-bottom: 90px !important; }
+.mb_100{ margin-bottom: 100px !important; }
+/* 右マージン */
+.mr_0{ margin-right: 0 !important; }
+.mr_5{ margin-right: 5px !important; }
+.mr_10{ margin-right: 10px !important; }
+.mr_15{ margin-right: 15px !important; }
+.mr_20{ margin-right: 20px !important; }
+.mr_25{ margin-right: 25px !important; }
+.mr_30{ margin-right: 30px !important; }
+.mr_35{ margin-right: 35px !important; }
+.mr_40{ margin-right: 40px !important; }
+.mr_50{ margin-right: 50px !important; }
+.mr_60{ margin-right: 60px !important; }
+.mr_70{ margin-right: 70px !important; }
+.mr_80{ margin-right: 80px !important; }
+.mr_90{ margin-right: 90px !important; }
+.mr_100{ margin-right: 100px !important; }
+/* 左マージン */
+.ml_0{ margin-left: 0 !important; }
+.ml_5{ margin-left: 5px !important; }
+.ml_10{ margin-left: 10px !important; }
+.ml_15{ margin-left: 15px !important; }
+.ml_20{ margin-left: 20px !important; }
+.ml_25{ margin-left: 25px !important; }
+.ml_30{ margin-left: 30px !important; }
+.ml_35{ margin-left: 35px !important; }
+.ml_40{ margin-left: 40px !important; }
+.ml_50{ margin-left: 50px !important; }
+.ml_60{ margin-left: 60px !important; }
+.ml_70{ margin-left: 70px !important; }
+.ml_80{ margin-left: 80px !important; }
+.ml_90{ margin-left: 90px !important; }
+.ml_100{ margin-left: 100px !important; }
+
+/* テーブル */
+.free-table01{
+   width: 100%;
+   border-left: solid 1px #CCC;
+   border-top: solid 1px #CCC;
+   margin-bottom: 1em;
+}
+.free-table01 th,
+.free-table01 td{
+   padding: .75em;
+   text-align: center;
+   border-right: solid 1px #CCC;
+   border-bottom: solid 1px #CCC;
+}
+.free-table01 th{
+   background-color: #f3f2f2;
+}
+.free-table01.clm3 td{
+   width: 33.3333%;
+}
+.free-table01.clm4 td{
+   width: 25%;
+}
+
+.small_txt{
+   font-size: .8em;
+}
+.center_txt{
+   text-align: center;
+}
+a.no_href{
+   pointer-events: none;
+}
+a.no_href:hover{
+   cursor: default;
+   color: #333 !important;
+}
+
+
+/* ==========================================================================
+//フリーレイアウト
+========================================================================== */
+.free-layout .section{
+   margin-bottom: 6em;
+}
+.free-layout .tit02 {
+   margin-bottom: 60px;
+}
+.free-layout .tit04 {
+   margin-top: 40px;
+   margin-bottom: 20px;
+}
+.free-layout .section p{
+	margin-bottom: 1.35em;
+	line-height: 1.65;
+}
+.free-layout ul:not(.ul01):not(.ul02):not(.ul_nav){
+	list-style: disc !important;
+   margin: 1em 0 1em 1.5em;
+}
+.free-layout ol:not(.ol01){
+   list-style: decimal !important;
+   margin: 1em 0 1em 1.5em;
+}
+.free-layout .freespace_wrap {
+   margin-bottom: 50px;
+}
+.free-layout .dl01 > dl:before {
+   width: 25%;
+}
+.free-layout .dl01 > dl > dt {
+   width: 25%;
+}
+.free-layout table{
+   width: 100%;
+   border-left: solid 1px #CCC;
+   border-top: solid 1px #CCC;
+   margin-bottom: 1em;
+}
+.free-layout table th,
+.free-layout table td{
+   padding: .75em;
+   text-align: center;
+   border-right: solid 1px #CCC;
+   border-bottom: solid 1px #CCC;
+}
+
+/* ==========================================================================
+// 共通
+========================================================================== */
+
+
+/* ==========================================================================
+// ヘッダ
+========================================================================== */
+
+
+/* ==========================================================================
+// フッタ
+========================================================================== */
+
+
+/* ==========================================================================
+//トップページ
+========================================================================== */
+
+/* ==========================================================================
+//私たちについて
+========================================================================== */
+.about .low-mv {
+   background-position: center center;
+}
+@media screen and (max-width: 780px) {
+   .about .low-mv {
+      background-position: center top;
+   }
+}
+
+
+/* ==========================================================================
+//事業案内
+========================================================================== */
+.service .low-mv {
+   padding: 150px 25px 100px;
+}
+@media screen and (max-width: 780px) {
+   .service .low-mv {
+      padding: 100px 25px 100px;
+   }
+   .service .low-mv .txts {
+      margin-top: 30px;
+   }
+}
+
+/* ==========================================================================
+//建物管理実績
+========================================================================== */
+.page-id-4981 .low-mv {
+   background-position: center -25px;
+}
+@media screen and (max-width: 780px) {
+   .page-id-4981 .low-mv {
+      background-position: center top;
+   }
+}
+
+/* ==========================================================================
+//企業情報INDEX
+========================================================================== */
+.company .low-mv {
+    padding: 150px 25px 100px;
+    background-position: center center !important;
+    z-index: 3;
+}
+
+/* ==========================================================================
+//会社概要
+========================================================================== */
+.profile .D2-cont .data__list {
+    margin-top: 0;
+}
+.profile .D2-cont .history__text-box {
+   min-height:inherit;
+}
+
+/* ==========================================================================
+//本社のご案内
+========================================================================== */
+@media screen and (max-width: 780px) {
+   .head .low-mv__heading {
+      margin-top: 30px;
+   }
+}
+
+
+/* ==========================================================================
+//青山店のご案内
+========================================================================== */
+@media screen and (max-width: 780px) {
+   .shop .low-mv__heading {
+      margin-top: 30px;
+   }
+}
+
+/* ==========================================================================
+//採用情報
+========================================================================== */
+@media screen and (max-width: 780px) {
+   .recruit .low-mv__heading {
+      margin-top: 30px;
+   }
+}
+
+/* ==========================================================================
+//福利厚生
+========================================================================== */
+@media screen and (max-width: 780px) {
+   .benefit .low-mv__heading {
+      margin-top: 30px;
+   }
+}
+
+/* ==========================================================================
+//お問い合わせ
+========================================================================== */
+.contact-form h3.form_message_title {
+    font-size: 32px;
+    color: #539289;
+    margin-bottom: .75em;
+    text-align: center;
+}
+.contact-form .contact-form__note--attention {
+   display: none;
+}
+.confirm .contact-form .entry_only{
+   display: none;
+}
+.mw_wp_form .horizontal-item + .horizontal-item {
+    margin-left: 0;
+}
+
+
+/* ==========================================================================
+404ページ
+========================================================================== */
+.error404 .notfound {
+   width: 100vw;
+   margin: 0;
+   padding: 0 20px;
+   margin-left: calc((100vw - 100%) / 2 * -1) !important;
+   margin-right: calc((100vw - 100%) / 2 * -1) !important;
+   background: #f0f6f5;
+   font-family: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Noto Serif JP", serif;
+   text-align: center;
+}
+.error404 .notfound__inner {
+   max-width: 945px;
+   margin: 0 auto;
+   padding: 160px 0;
+}
+.error404 .notfound h2 {
+   font-size: 28px;
+   color: #44736d;
+   font-weight: bold;
+   margin-bottom: 1em;
+}
+.error404 .notfound__text {
+    font-size: 18px;
+    line-height: 1.93;
+    letter-spacing: 0;
+    font-weight: 400;
+    color: #000;
+    padding: 0 30px 55px;
+    border-bottom: 1px solid rgba(68, 115, 109, 0.1882352941);
+}
+@media screen and (max-width: 768px) {
+    .error404 .notfound__inner {
+        padding: 80px 0;
+    }
+}
+
+
+/* ==========================================================================
+   ワードプレス
+========================================================================== */
+.user_edit a{
+   color: #2aa7ec;
+}
+.user_edit p{
+   margin-bottom: 1.35em;
+   line-height: 1.65;
+}
+.user_edit::after,
+.user_edit p::after{
+   content: " ";
+   display: block;
+   clear: both;
+}
+.user_edit ul {
+   margin-left: 1.25em;
+   margin-bottom: 1.25em;
+   list-style: inherit;
+}
+.user_edit ol {
+   list-style: decimal;
+   margin-left: 1.25em;
+   margin-bottom: 1.25em;
+}
+.user_edit table {
+   border-top: solid 1px #DDD;
+   border-right: solid 1px #DDD;
+   margin: 1.5em 0;
+}
+.user_edit table td {
+   border-bottom: solid 1px #DDD;
+   border-left: solid 1px #DDD;
+   padding: .65em !important;
+}

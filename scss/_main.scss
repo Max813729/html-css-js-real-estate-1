@@ -1,0 +1,573 @@
+// COMMON   ////////////////////////////////////////////////
+
+.inner{
+    @include inner;
+    @media screen and (max-width: $sp-width){
+        padding: 0;
+    }
+}
+body{
+    overflow-x: hidden;
+}
+main{
+    @include inner;
+    position: relative;
+    > div[id]{
+        margin-top: -155px;
+        padding-top: 155px;
+    }
+    .anchor{
+        pointer-events: none;
+    }
+    @media screen and (max-width: $sp-width){
+        > div[id]{
+            margin-top: -70px;
+            padding-top: 70px;
+        }
+    }
+}
+
+
+.tit01{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-family: $gara;
+    color: #56817a;
+    text-align: center;
+    margin-bottom: 40px;
+    span{
+        font-size: 20px;
+        font-style: italic;
+    }
+}
+
+
+
+
+
+
+.br_sp{
+    display: none;
+    @media screen and (max-width: $sp-width){
+        display: block;
+    }
+}
+
+
+.br_pc{
+    display: block;
+    @media screen and (max-width: $sp-width){
+        display: none;
+    }
+}
+
+.btn_01{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    a,button,> div:has(input){
+        > input{
+            width: 100%;
+            line-height: 1.5;
+            height: 100%;
+        }
+        display: block;
+        width: 390px;
+        max-width: calc(100% - 30px);
+        height: 100px;
+        text-align: center;
+        border: 1px solid #fff;
+        background-color: $main-color;
+        color: #fff;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: $gara;
+        font-size: 18px;
+        transition: 0.5s;
+        line-height: 1;
+        span{
+            font-family: $gara;
+            font-style: italic;
+            font-size: 15px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        &:after{
+            content: "";
+            background: url(../images/_common/arrow01.png) center no-repeat;
+            width: 30px;
+            height: 10px;
+            background-size: contain;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transition: 0.5s;
+            transform: translateY(-50%);
+        }
+        &:hover{
+            color: #fff!important;
+            transition: 0.5s;
+            &:after{
+                right: -10px;
+                transition: 0.5s;
+            }
+        }
+    }
+    &.disabled{
+        a,button,> div:has(input){
+            &:after{
+                content: "";
+                background: url(../images/_common/arrow02.png) center no-repeat;
+                width: 30px;
+                height: 10px;
+                background-size: contain;
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transition: 0.5s;
+                transform: translateY(-50%);
+            }
+            &:hover{
+                color: #fff!important;
+                transition: 0.5s;
+                &:after{
+                    right: 20px!important;
+                    transition: 0.5s;
+                }
+            }
+        }
+    }
+    &C{
+        a{
+            background: transparent;
+            border: 1px solid $main-color;
+            color: $main-color;
+            &:after{
+                content: "";
+                background: url(../images/T1/arrow02.png) center no-repeat;
+                background-size: contain;
+            }
+            &:hover{
+                color: $main-color!important;
+            }
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        flex-wrap: wrap;
+        a{
+            width: 300px;
+            height: 80px;
+            font-size: 16px;
+        }
+    }
+}
+
+.btn_02{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    a{
+        
+        display: block;
+        width: 390px;
+        max-width: 100%;
+        height: 100px;
+        text-align: center;
+        border: 1px solid #fff;
+        color: #fff;
+        margin: 0 auto;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: $gara;
+        font-size: 18px;
+        transition: 0.5s;
+        line-height: 1;
+        span{
+            font-family: $gara;
+            font-style: italic;
+            font-size: 15px;
+            display: inline-block;
+            margin-top: 4px;
+        }
+        &:after{
+            content: "";
+            background: url(../images/_common/arrow01.png) center no-repeat;
+            width: 30px;
+            height: 10px;
+            background-size: contain;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transition: 0.5s;
+            transform: translateY(-50%);
+        }
+        &:hover{
+            color: #fff!important;
+            transition: 0.5s;
+            &:after{
+                right: -10px;
+                transition: 0.5s;
+            }
+        }
+    }
+    &C{
+        a{
+            border: 1px solid $main-color;
+            color: $main-color;
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        flex-wrap: wrap;
+        a{
+            // width: 100%;
+            width: 300px;
+            height: 80px;
+        }
+    }
+}
+
+.slick-arrow{
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.slick-wraps{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    > .slick-dots{
+        width: auto;
+    }
+}
+
+
+.temp-txt01{
+    margin-bottom: 20px;
+}
+
+.temp-link01{
+    margin-bottom: 20px;
+    a{
+        &:before{
+            content: "";
+            display: inline-block;
+            width: 0.75em;
+            height: 0.75em;
+            background: url(../images/_common/ico_arw01.svg) center no-repeat;
+            background-size: contain;
+            margin-right: 0.5em;
+        }
+    }
+}
+
+.temp-tbl{
+    overflow-x: auto;
+    table{
+        width: 100%;
+        min-width: 900px;
+        tr{
+            td{
+                border: 1px solid #ccc;
+                text-align: center;
+                vertical-align: middle;
+                padding: 1em 0.5em;
+                font-size: 14px;
+                &.bg01{
+                    background-color: $acc-color03;
+                    font-weight: bold;
+                }
+                &.op0{
+                    opacity: 0;
+                    border: 0;
+                }
+            }
+        }
+    }
+    .ul01{
+        margin-left: 2em;
+    }
+    @media screen and (max-width: $sp-width){
+        table{
+            min-width: 700px;
+        }
+    }
+}
+
+.mb20{
+    margin-bottom: 20px;
+}
+
+.mb30{
+    margin-bottom: 30px;
+    @media screen and (max-width: $sp-width){
+        margin-bottom: 30px;
+    }
+}
+
+.mb40{
+    margin-bottom: 40px;
+    @media screen and (max-width: $sp-width){
+        margin-bottom: 30px;
+    }
+}
+
+.mb60{
+    margin-bottom: 60px;
+    @media screen and (max-width: $sp-width){
+        margin-bottom: 60px;
+    }
+}
+.mb80{
+    margin-bottom: 80px;
+    @media screen and (max-width: $sp-width){
+        margin-bottom: 60px;
+    }
+}
+
+
+// ul ・中黒リスト
+.ul01{
+    list-style-type: disc;
+    margin-left: 1.25em;
+    > li{
+        position: relative;
+        margin-bottom: 0.25em;
+        font-size: $fs16;
+        text-align: left;
+        > div{
+            color: #333;
+        }
+        .bikou{
+            font-size: $fs14;
+        }
+        a{
+            color: #2aa7ec;
+            text-decoration: underline;
+        }
+        ul,ol{
+            margin: 10px 0;
+            li{
+                position: relative;
+                margin-bottom: 0.2em;
+                padding-left: 1.5em;
+                font-size: $fs14;
+                text-align: left;
+            }
+        }
+    }
+    &.lh1-5{
+        li{
+            margin-bottom: 0.4em;
+        }
+    }
+}
+
+// ul ※しるし
+.ul02{
+    li{
+        position: relative;
+        margin-bottom: 0.5em;
+        padding-left: 1.5em;
+        font-size: $fs16;
+        line-height: 1.7;
+        &:before{
+            content: "※"!important;
+            position: absolute;
+            display: block;
+            width: 1em;
+            height: 1em;
+            top: 0;
+            left: 0;
+        }
+        a{
+            color: #2aa7ec;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ul 数字リスト
+.ol01{
+    list-style-type: decimal;
+    margin-left: 1.25em;
+    li{
+        position: relative;
+        margin-bottom: 0.75em;
+        font-size: $fs16!important;
+        padding-left: 0.25em!important;
+        &:before{
+            display: none!important;
+        }
+        .bikou{
+            font-size: $fs14;
+        }
+        a{
+            color: #2aa7ec;
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+// dl要素その1
+.dl01{
+    margin-bottom: 30px;
+    > dl{
+        display: flex;
+        border-bottom: 1px solid #ccc;
+        position: relative;
+        padding: 1em 0;
+        &:before{
+            content: "";
+            display: block;
+            width: 180px;
+            height: 1px;
+            background-color: $main-color;
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+        }
+        > dt{
+            width: 180px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        > dd{
+            padding: 0 0.5em;
+            dl{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0 10px;
+                margin-bottom: 5px;
+                dt{
+                    font-weight: bold;
+                }
+            }
+        }
+        &:first-child{
+            padding-top: 0;
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        > dl{
+            flex-wrap: wrap;
+            &:before{
+                content: "";
+                display: block;
+                width: 70px;
+                height: 1px;
+                background-color: $main-color;
+                position: absolute;
+                left: 0;
+                bottom: -1px;
+                display: none;
+            }
+            > dt,> dd{
+                width: 100%;
+                font-size: $fs16;
+            }
+            > dt{
+                margin-bottom: 5px;
+                color: $main-color;
+            }
+            > dd{
+                padding: 0;
+                dl{
+                    flex-wrap: wrap;
+                    margin-bottom: 15px;
+                    dt,dd{
+                        width: 100%;
+                    }
+                    dt{
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dl02{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    dl{
+        background-color: #FCF9F2;
+        padding: 20px 20px 20px 0;
+        display: flex;
+        > dt{
+            width: 180px;
+            font-weight: bold;
+            flex-shrink: 0;
+            border-right: 1px solid $main-color;
+            text-align: center;
+            margin-right: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        > dd{
+            padding: 0 0.5em;
+        }
+    }
+    @media screen and (max-width: $sp-width){
+        dl{
+            flex-direction: column;
+            padding: 20px;
+            dt{
+                font-size: 18px;
+                border: 0;
+            }
+            dt,dd{
+                width: 100%;
+                display: block;
+                text-align: left;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+
+
+
+// リンク設定   ////////////////////////////////////////////////
+
+a[href^="tel:"]{
+    color: #333;
+}
+// main .top-nb__news,main .news-list{
+
+
+.new{
+    font-size: $fs14;
+    color: red;
+    display: inline-block;
+    font-weight: bold;
+    margin-left: 0.25em;
+}
+
+// カテゴリー
+.c01{background-color: #e4e4e4;}
+.c02{background-color: #cde7fb;}
+.c03{background-color: #c5e6cd;}
+.c04{background-color: #fdc1c1;}
+
+// mv セクション
+.mv {
+    position: relative;
+}
+
